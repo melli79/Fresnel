@@ -1,10 +1,11 @@
+% !TeX spellcheck = en_US
 \documentclass[12pt]{article}
 \usepackage[unicode=true]{hyperref}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath,amsthm,amsfonts,eucal}
 \usepackage{graphicx}
 
-\title{Applications of the Fresnel Integral}
+\title{Applications of the Fresnel Integrals}
 \author{Jack Jones}
 \date{March 17\th, 2019}
 
@@ -17,12 +18,14 @@
 \newcommand\defvec[2]{\def#1{{\vec{#2}}}}
 \def\vec{\mathbf}
 \renewcommand\th[1][th]{$^{\text{#1}}$}
+\newtheorem{thm}{T`heorem}
 
 %\let\C=\relax
 \DeclareMathOperator\Cee{C} % C(x) := \int_0^x cos(t^2) \d{t}
 \defbb\CC{C} % complex numbers
 \defrm\ud{d}
 \def\d#1{{\,\ud#1\,}}
+\newcommand\udfrac[2]{\ensuremath{\frac{\ud#1}{\ud #2}}}
 \defrm\e{e}  % Euler's number
 \DeclareMathOperator\erf{erf} % error function
 \defsf\si{i} % \sqrt{-1}
@@ -34,41 +37,74 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We will show the relation between Fresnel integrals, complex error function and Euler spiral.  Furthermore we will show two applications of these, one to the optics of a finite slit, another one to \dots.
+
+The Euler spiral, defined by the linear relationship between curvature and arc length, is a beautiful and elegant plane curve. Its underlying mathematical equation is most
+commonly known as the Fresnel integrals. However, the Fresnel integrals and Euler spiral are  two views of one and the same thing. In this paper, we focus on Fresnel integral and study its properties and useful applications. In optics, the illumination
+intensity at a point behind a slit is computed from
+the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and
+an upcoming bend
+
+
 \end{abstract}
 \clearpage
 
 
 \section{Introduction}
-The Fresnel integrals, complex error function and Euler spiral are three views of one and the same thing.  They are widely used in physics, especially in optics but recently also in electronics.  Let us begin this paper by introducing the Euler spiral.
+An Euler spiral is a curve whose curvature changes linearly with its curve length. Taking the example of peeling an orange with a kitchen knife, one can either cut the skin along meridians, or cut it along a spiral as the left image in Figure~\ref{f:orangePeel} shows. The red lines marked on the orange refer to the route one can follow to peel the orange. Later, if we unfold the spiral strip and flatten it on a table, we will see a long curve which is curved differently at different positions. Imagine that we will now cut the peel with progressively thinner strip widths, what we will obtain in the end is a long beautiful curve known as Euler spiral, as the left-side image in Figure~\ref{f:orangePeel} shows. According to Alfred Gray, Euler spiral is “one of the most elegant of all plane curves.” \cite{ASG17}
+
 
 \begin{figure}[h!]
-    \centering
+	\centering
 	\includegraphics[height=5cm]{orange.jpg} \hfill
 	\includegraphics[height=5cm]{orangePeel.jpg}
 	\label{f:orangePeel}
 	\caption{Left: Peeling an orange in a spiral of height $1/N$.
-		Right: The flattened peel that resembles an Euler spiral.  Photos taken from \cite{BH12}.
+		Right: The flattened orange peel that resembles an Euler spiral.  Photos taken from \cite{BH12}.
 	}
 \end{figure}
-There are two standard ways of peeling an orange: either cut the skin along meridians, or cut it along a spiral. We consider here the second method, and study the shape of the spiral strip, when unfolded on a table. We derive a formula that describes the corresponding flattened-out spi- ral. Cutting the peel with progressively thinner strip widths, we obtain a sequence of increasingly long spirals. We show that, after rescaling, these spirals tends to a definite shape, known as the Eu- ler spiral. The Euler spiral has applications in many fields of science. In optics, the illumination intensity at a point behind a slit is computed from the distance between two points on the Euler spi- ral. The Euler spiral also provides optimal curva- ture for train tracks between a straight run and an upcoming bend. It is striking that it can be also obtained with an orange and a kitchen knife.
+
+For a mathematician, an interesting question is whether there are any equations that can describe the corresponding shape of an Euler spiral. For this we consider the Fresnel integrals.  These are defined as integrals over some elementary functions which can however not be integrated in elementary functions.  These integrals occur naturally in the description of the optics of an illuminated slit (in Subsection~\ref{s:relation}).
 
 
-\subsection{Definition of the Fresnel Integral}
-The Fresnel integrals are two transcendental functions defined as follows
+\subsection{Definition of Euler Spiral}
+The Euler Spiral is defined by the  linear relationship between curvature and arc length, was
+first proposed as a problem of elasticity by James Bernoulli, then solved accurately by Leonhard Euler \cite{Lev08}.
+The Euler spiral is a curve in the complex plane that has curvature proportional to the arc length.  Here the arc length $s(t)$ of a differentiable curve $(x(t),y(t))$ in the plane is defined by
+\[  \left(\udfrac{s}{t}\right)^2 := \left(\udfrac{x}{t}\right)^2 +\left(\udfrac{y}{t}\right)^2.
+\]  Note that the curve length is monotone increasing with the parameter $t$ of the curve.  For a nice curve, it is possible to rewrite the curve in the arc length, i.e.~$(x(s),y(s))$.
+
+The curvature of a smooth curve $\kappa$ can be defined as 
+\[  \kappa=\frac1R = x'y'' -x''y'
+\] if we assume that the curve is parameterized in the arc length $s$ \cite{BH12}.
+
+According to \cite{BH12} the peel of the orange can be approximated as:
+\begin{equation}
+  \kappa \sim s  \label{e:eulerSpiral}
+\end{equation}
+
+The question we want to answer is how to describe the solution of this differential equation explicitly.  Therefore we introduce the Fresnel integrals.
+
+
+\subsection{Definition of the Fresnel Integrals}
+The Fresnel sine and cosine integrals are represented by  $S(x)$ and $C(x)$, which are two integral functions that originate by applying the analysis of Fresnel diffraction phenomena. The mathematical equations are as follows:
+
 \begin{align}
-  \eS(x) &:= \int_0^x  \sin\left(\frac\pi2 t^2\right) \d{t}, \\
-  \Cee(x) &:= \int_0^x \cos\left(\frac\pi2 t^2\right) \d{t}.
+\eS(x) &:= \int_0^x  \sin\left(\frac\pi2 t^2\right) \d{t}, \\
+\Cee(x) &:= \int_0^x \cos\left(\frac\pi2 t^2\right) \d{t},
 \end{align}
+where $x \ge 0$ is a real number and $t$ is a real variable. When x tends to infinite, $S=C=1/2$.
+
 The difficulty is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendental \cite[p.195ff]{AS}.  This is in contrast to, e.g.
 $$ \int_0^x (\sin t)^2 \d{t} = \frac12\int_0^x \left(1-\cos(2t)\right)\d{t} = \frac12x -\frac14\sin(2x).
 $$
 
-\subsection{Some simple history}
-The Fresnel integral and the related Euler spiral were discovered multiple times during history.  One of the first occurrances is according to \cite{Lev08} by J. Bernoulli in 1694 where he defines a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends.  In 1744 Euler is able to describe the curve by a differential equation that also allows him to reformulate it as the Fresnel integral.  37 years later he is able to compute the limiting points ($t\to\pm\infty$) of the curve and integrals.  Fresnel rediscovers the curve in 1818 and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically.  In 1874 Cornu plotted the curve accurately and proposes it as a graphical means for computing diffraction problems.
 
+\subsection{Mathematical history}
+The Fresnel integral and the related Euler spiral were discovered multiple times during history.  One of the first occurrances is according to \cite{Lev08} by J. Bernoulli in 1694 where he defines a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends.  In 1744, Euler is able to describe the curve by a differential equation that also allows him to reformulate it as the Fresnel integral.  37 years later he is able to compute the limiting points ($t\to\pm\infty$) of the curve and integrals.  Fresnel rediscovers the curve in 1818 and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically.  In 1874 Cornu plotted the curve accurately and proposes it as a graphical means for computing diffraction problems.
 
-\section{Properties}
+In the following sections, we will first describe the important properties of the Fresnel integrals followed by some important applications of it.
+
+\section{Properties of the Fresnel Integrals}
 \subsection{Basic properties}
 The Fresnel integrals are odd, i.e.
 \begin{align*}
@@ -92,7 +128,34 @@ Since the integrals cannot be computed by elementary analytic means, an alternat
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Fresnel-Integrals-(Normalised).png}
-	\caption{Fresnel integrals.  Taken from \cite[/Fresnel\_Integral]{wiki}.}
+	\caption{Fresnel integrals \cite{wiki}.}
+\end{figure}
+
+\subsection{Relation to the Euler spiral}\label{s:relation}
+\begin{thm}  The curve $(x,y)=(C(t),S(t))$ is an Euler spiral.
+\end{thm}
+\begin{proof}  Let us start with showing that $t$ is the parameter of the arc length.  Consider therefore the derivatives
+\begin{align*}
+  C'(t) &= \frac\pi2\cos\left(\frac\pi2 t^2\right), &  
+  S'(t) &= \frac\pi2\sin\left(\frac\pi2 t^2\right), \\
+  C''(t) &= -\left(\frac\pi2\right)^2\sin\left(\frac\pi2 t^2\right)\cdot 2t, &
+  S''(t) ^= \left(\frac\pi2\right)^2\cos\left(\frac\pi2 t^2\right)\cdot 2t.
+\intertext{Then}
+  \left(\udfrac{s}{t}\right)^2 &= \left(\frac\pi2\right)^2 \sim t
+\end{align*}
+I.e.~up to a constant factor $t$ is the arc length of the curve.
+
+Let us now consider the curvature
+\begin{align*}
+  \kappa &= x'y''-x''y' \sim C'(t)S''(t)-C''(t)S'(t) = \frac{\pi}{2}2t \sim t
+\end{align*}
+\end{proof}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{eulerSpiral.png}
+	\label{f:eulerSpiral}
+	\caption{Euler spiral $(x,y)=(\Cee(t),\eS(t))$ \cite{wiki}.}
 \end{figure}
 
 
@@ -102,7 +165,7 @@ $$  \erf(x) := \int_{-x}^x \exp(-t^2) \d{t}.
 $$
 Also this function is analytic and can therefore be expanded to the whole complex plane.  Here the integral for fixed endpoints is independent of the path.
 
-Now for the complex defintion of exponential function
+Now for the complex definition of exponential function
 \begin{align*}  \exp(x+\si y) &:= (\cos y +\si\sin y)\e^x
 \intertext{we obtain}
   \Cee(z)+\si\eS(z) &= \int_0^z \exp\left(\si\frac\pi2 t^2\right)\d{t} 
@@ -111,33 +174,29 @@ Now for the complex defintion of exponential function
 \end{align*}
 Therefore we can say that the Fresnel integrals are the real and imaginary part of the complex error function.
 
-\section{Euler Spiral}
-\cite{Lev08}  The Euler spiral is a curve in the complex plane that has curvature proportional to the arc length.  Here arc length is defined as
-\[  s(T) := \int_0^T \sqrt{\d{x}^2+\d{y}^2}
-\]  for some differentiable curve $(x(t),y(t))$ in the plane.  Note that the curve length is monotone increasing with the parameter $t$ of the curve.  For a nice curve, it is possible to reparametrize the cruve in the arc length, i.e.~$(x(s),y(s))$.
 
-The curvature of a smooth curve is defined as 
-\[  \kappa=\frac1R = \frac{\dot x\ddot y -\ddot x\dot y}{(\dot x)^2+(\dot y)^2}.
-\]  Here $\dot{x}=\frac{\d{x}}{\d{t}}$ is the derivative by the parameter $t$ (and $\dot{y}$ that of $y(t)$ and $\ddot{x}$ the second derivative, correspondingly).  If we combine the coordinates to a complex number $z=x(t)+\si y(t)$ and reparametrize the curve in its arc length $z(s)$, then the curvature condition reads as
-\[  z^{\prime\prime}\bar{z}' = \frac\si{R} = \si s.
-\]  Here $z'=\frac{\d{z}}{\d{s}}$ is the derivative by the arc length.
+\section{Applications of Fresnel Integral}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=5cm]{eulerSpiral.png}
-	\label{f:eulerSpiral}
-	\caption{Euler spiral.  Taken from \cite[/Fresnel\_integral\#/media/File:Cornu\_Spiral.svg]{wiki}.}
-\end{figure}
-\begin{itemize}\item The definition of Euler Spiral
-\item The relation between Fresnel Integral and Euler Spiral
-\end{itemize}
+The error functions, Fresnel integrals, and related functions occur in a variety of physical applications. Fresnel integrals and Cornu’s spiral occurred originally in the analysis of the diffraction of light; see Born and Wolf (1999, §8.7). More recently, Cornu’s spiral appears in the design of highways and railroad tracks, robot trajectory planning, and computer-aided design; see Meek and Walton (1992).
+
+In optics, the illumination intensity at a point behind a slit is computed from the distance between two points on the Euler spi- ral. The Euler spiral also provides optimal curva- ture for train tracks between a straight run and an upcoming bend. It is striking that it can be also obtained with an orange and a kitchen knife.
+
+The Euler spiral has applications in many fields of science. 
+
+The Euler spiral has applications in
+many fields of science. In optics, the illumination
+intensity at a point behind a slit is computed from
+the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and
+an upcoming bend. 
+
+Fraunhofer diffraction, asymptotics of Weyl sums, and railway and freeway constructions.
 
 
-\section{Application of Fresnel Integral}
 \subsection{Application using the Euler Spiral}
 \cite{BH12}
 Electromagnetic field intensity
-
+ in the physics of diffraction and is used in the theory of driving motorcar round a corner quickly.
+ 
 \subsection{Further Applications}
 
 

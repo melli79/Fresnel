@@ -18,8 +18,8 @@
 \def\vec{\mathbf}
 \renewcommand\th[1][th]{$^{\text{#1}}$}
 
-\let\C=\relax
-\DeclareMathOperator\C{C} % C(x) := \int_0^x cos(t^2) \d{t}
+%\let\C=\relax
+\DeclareMathOperator\Cee{C} % C(x) := \int_0^x cos(t^2) \d{t}
 \defbb\CC{C} % complex numbers
 \defrm\ud{d}
 \def\d#1{{\,\ud#1\,}}
@@ -27,27 +27,40 @@
 \DeclareMathOperator\erf{erf} % error function
 \defsf\si{i} % \sqrt{-1}
 \defbb\R{R}
-\let\S=\relax
-\DeclareMathOperator\S{S} % S(x) :=int_0^x sin(t^2) \d{t}
+%\let\S=\relax
+\DeclareMathOperator\eS{S} % S(x) :=int_0^x sin(t^2) \d{t}
 
 
 \begin{document}
 \maketitle
 \begin{abstract}
-	
+We will show the relation between Fresnel integrals, complex error function and Euler spiral.  Furthermore we will show two applications of these, one to the optics of a finite slit, another one to \dots.
 \end{abstract}
 \clearpage
 
 
 \section{Introduction}
+The Fresnel integrals, complex error function and Euler spiral are three views of one and the same thing.  They are widely used in physics, especially in optics but recently also in electronics.  Let us begin this paper by introducing the Euler spiral.
+
+\begin{figure}[h!]
+    \centering
+	\includegraphics[height=5cm]{orange.jpg} \hfill
+	\includegraphics[height=5cm]{orangePeel.jpg}
+	\label{f:orangePeel}
+	\caption{Left: Peeling an orange in a spiral of height $1/N$.\\
+		Right: The flattened peel that resembles an Euler spiral.  Photos taken from \cite{BH12}.
+	}
+\end{figure}
+There are two standard ways of peeling an orange: either cut the skin along meridians, or cut it along a spiral. We consider here the second method, and study the shape of the spiral strip, when unfolded on a table. We derive a formula that describes the corresponding flattened-out spi- ral. Cutting the peel with progressively thinner strip widths, we obtain a sequence of increasingly long spirals. We show that, after rescaling, these spirals tends to a definite shape, known as the Eu- ler spiral. The Euler spiral has applications in many fields of science. In optics, the illumination intensity at a point behind a slit is computed from the distance between two points on the Euler spi- ral. The Euler spiral also provides optimal curva- ture for train tracks between a straight run and an upcoming bend. It is striking that it can be also obtained with an orange and a kitchen knife.
+
 
 \subsection{Definition of the Fresnel Integral}
 The Fresnel integrals are two transcendental functions defined as follows
 \begin{align}
-  \S(x) &:= \int_0^x  \sin(\frac\pi2 t^2) \d{t}, \\
-  \C(x) &:= \int_0^x \cos(\frac\pi2 t^2) \d{t}.
+  \eS(x) &:= \int_0^x  \sin\left(\frac\pi2 t^2\right) \d{t}, \\
+  \Cee(x) &:= \int_0^x \cos\left(\frac\pi2 t^2\right) \d{t}.
 \end{align}
-The difficulty is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendenta \cite[p.195ff]{AS}.  This is in contrast to, e.g.
+The difficulty is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendental \cite[p.195ff]{AS}.  This is in contrast to, e.g.
 $$ \int_0^x (\sin t)^2 \d{t} = \frac12\int_0^x \left(1-\cos(2t)\right)\d{t} = \frac12x -\frac14\sin(2x).
 $$
 
@@ -59,21 +72,21 @@ The Fresnel integral and the related Euler spiral were discovered multiple times
 \subsection{Basic properties}
 The Fresnel integrals are odd, i.e.
 \begin{align*}
-	\S(-x) &= \S(x), & \C(-x) &= \C(x).
+	\eS(-x) &= \eS(x), & \Cee(-x) &= \Cee(x).
 \end{align*}
 \begin{proof}[Idea of proof]  The integrands $\sin(t^2)$ and $\cos(t^2)$ are even in $t$ and an anti-derivative $F(x)$ of an even function is odd if in addition $F(0)=0$.  The latter follows, because both integrals start at $t=0$.
 \end{proof}
 
 Their limits are
-\[  \lim_{x\to\infty} \S(x) = 0.5\sqrt{\tfrac\pi2},\qquad  \lim_{x\to\infty} \C(x) = 0.5\sqrt{\tfrac\pi2}.
+\[  \lim_{x\to\infty} \eS(x) = 0.5\sqrt{\tfrac\pi2},\qquad  \lim_{x\to\infty} \Cee(x) = 0.5\sqrt{\tfrac\pi2}.
 \]
 
 Since the integrals cannot be computed by elementary analytic means, an alternative is to compute them with a power series.  Therefore we present the Taylor expansion as
 \begin{align*}
-  \S(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+3}\frac{(\pi/2)^{2n+1}}{(2n+1)!(4n+3)}, \\
-  \C(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+1}\frac{(\pi/2)^{2n}}{(2n)!(4n+1)}.
+  \eS(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+3}\frac{(\pi/2)^{2n+1}}{(2n+1)!(4n+3)}, \\
+  \Cee(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+1}\frac{(\pi/2)^{2n}}{(2n)!(4n+1)}.
 \end{align*}
-\begin{proof}[Idea of proof]  Start from the well known Taylor expansion of $\sin t = \sum_{n\ge0}$ $(-1)^n t^{2n+1}/(2n+1)!$ and $\cos t = \sum_{n\ge0} (-1)^nt^{2n}/(2n)!$, substitute $t\mapsto \tfrac\pi2 t^2$ and take the antiderivative for each summand.  The resulting series are $\S(t)$ and $\C(t)$, because the integral of an absolutely converging power series equals the absolutely converging power series of the integrals of the summands.
+\begin{proof}[Idea of proof]  Start from the well known Taylor expansion of $\sin t = \sum_{n\ge0}$ $(-1)^n t^{2n+1}/(2n+1)!$ and $\cos t = \sum_{n\ge0} (-1)^nt^{2n}/(2n)!$, substitute $t\mapsto \tfrac\pi2 t^2$ and take the antiderivative for each summand.  The resulting series are $\eS(t)$ and $\Cee(t)$, because the integral of an absolutely converging power series equals the absolutely converging power series of the integrals of the summands.
 \end{proof}
 
 \begin{figure}[h!]
@@ -92,7 +105,7 @@ Also this function is analytic and can therefore be expanded to the whole comple
 Now for the complex defintion of exponential function
 \begin{align*}  \exp(x+\si y) &:= (\cos y +\si\sin y)\e^x
 \intertext{we obtain}
-  \C(z)+\si\S(z) &= \int_0^z \exp\left(\si\frac\pi2 t^2\right)\d{t} 
+  \Cee(z)+\si\eS(z) &= \int_0^z \exp\left(\si\frac\pi2 t^2\right)\d{t} 
 \intertext{Now we do a substitution in the complex plane as $t'=\sqrt{i}t$, i.e.~$\d{t'}=\frac{1+\si}{\sqrt{2}}\d{t}$ and obtain}
   &= \frac{1-\si}{\sqrt{2}}\int_0^{\frac{1+\si}{\sqrt{2}}} \exp(t^{\prime2}) \d{t'} = \frac12\,\frac{1-\si}{\sqrt2} \erf\left(\frac{1+\si}{\sqrt2}\,\frac\pi2 z\right).
 \end{align*}

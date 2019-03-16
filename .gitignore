@@ -3,5 +3,5 @@
 *.blg
 *.log
 *.out
-*.sycntex.gz
+*.synctex.gz
 *.pdf

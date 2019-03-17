@@ -41,7 +41,7 @@
 \maketitle
 \begin{abstract}
 
-The Euler spiral, that is defined by the linear relationship between curvature and arc length, is a beautiful and elegant plane curve. Its underlying mathematical equation is most
+The Euler spiral, that is defined by a linear relationship between curvature and arc length, is a beautiful and elegant plane curve. Its underlying mathematical equation is most
 commonly known as the Fresnel integrals. However, the Fresnel integrals and Euler spiral are  two views of one and the same thing. In this paper, we focus on the Fresnel integrals and study its properties and useful applications. In optics, the illumination intensity at a point behind a straight edge is computed from the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and an upcoming bend.
 
 \end{abstract}
@@ -49,7 +49,7 @@ commonly known as the Fresnel integrals. However, the Fresnel integrals and Eule
 
 
 \section{Introduction}
-An Euler spiral is a famous curve whose curvature changes proportional to  its arc length. Taking the example of peeling an orange with a kitchen knife, one can either cut the skin vertically, or cut it along a spiral as the left-hand image in Figure~\ref{f:orangePeel} shows. The red lines marked on the orange refer to the route one can follow to peel the orange. Later, if we unfold the spiral strip and flatten it on a table, we will see a long curve which is curved differently at different positions. Imagine that we will now cut the peel with progressively thinner width of the strip, what we will obtain in the end is a long beautiful curve known as Euler spiral, as the right-hand image in Figure~\ref{f:orangePeel} shows. According to Alfred Gray, Euler spiral is “one of the most elegant of all plane curves.” \cite{ASG17}
+An Euler spiral is a famous curve whose curvature changes proportional to  its arc length. Taking the example of peeling an orange with a kitchen knife, one can either cut the skin vertically, or cut it along a spiral as the left-hand image in Figure~\ref{f:orangePeel} shows. The red lines marked on the orange refer to the route one can follow to peel the orange. Later, if we unfold the spiral strip and flatten it on a table, we will see a long curve which is curved differently at different positions. Imagine that we will now cut the peel with progressively thinner width of the strip, what we will obtain in the end is a long beautiful curve known as Euler spiral, as the right-hand image in Figure~\ref{f:orangePeel} shows. According to Alfred Gray, Euler spiral is ``one of the most elegant of all plane curves.'' \cite{ASG17}
 
 
 \begin{figure}[h!]
@@ -85,56 +85,62 @@ The question we want to answer is how to describe the solution of this different
 
 
 \subsection{Definition of the Fresnel Integrals}
-The Fresnel sine and cosine integrals are represented by $\S(x)$ and $\C(x)$, which are two integral functions that originate by applying the analysis of Fresnel diffraction phenomena. The mathematical equations are as follows:
+The Fresnel sine and cosine integrals are represented as $\S(x)$ and $\C(x)$.  They are two integral functions that originate by applying the analysis of Fresnel diffraction phenomena. The mathematical equations are as follows:
 
 \begin{align}
-  \S(x) &:= \int_0^x  \sin\left(\frac\pi2 t^2\right) \d{t}, \\
-  \C(x) &:= \int_0^x \cos\left(\frac\pi2 t^2\right) \d{t},
+  \S(x) &:= \int_0^x  \sin\left(\frac\pi2 t^2\right) \d{t}, \label{e:FresnelS}\\
+  \C(x) &:= \int_0^x \cos\left(\frac\pi2 t^2\right) \d{t}, \label{e:FresnelC}
 \end{align}
-where $x$ is a real number and $t$ is a real variable. When $x$ tends to infinity, $\S=\C=1/2$.
-
-The difficulty is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendental \cite[p.195ff]{AS}.  This is in contrast to, e.g.
+where $x$ is a real number and $t$ is a real variable.   The coefficient $\pi/2$ is just for normalization.  In particular, when $x$ tends to infinity, $\S=\C=1/2$.  The important property is that the integrand is a trigonometric function in the square of the integration variable.  The result is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendental \cite[p.195ff]{AS}.  This is in contrast to, e.g.
 $$ \int_0^x (\sin t)^2 \d{t} = \frac12\int_0^x \left(1-\cos(2t)\right)\d{t} = \frac12x -\frac14\sin(2x).
 $$  The first step comes from the double angle formula $\cos(2t)=1-2(\sin t)^2$ \cite{AS}.  There is however no square angle formula, i.e.~anything related to $\cos(t^2)$.
 
 
 \subsection{Mathematical history}
-If we trace the history of the Euler spiral and Fresnel integrals, we will find it under different authors, e.g.~Fresnel, Cornu, Euler etc.  This is because of the long history that Fresnel integral and the related Euler spiral have already left behind. They were discovered multiple times and under varying names during history.  One of the first occurrences is according to \cite{Lev08} by the French physicist J. Bernoulli in 1694.  Bernoulli approached many problems in elasticity theory at that time. One of them is a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends. He tried to find an explicit mathematical description of that curve, but it turned out that it is not that easy to do so at that time. In 1744, Swiss physicist and mathematician L. Euler is able to describe the same curve by a differential equation. This allows him to formulate a solution with integrals, namely what will later be called the Fresnel integrals.  37 years later, he computes the limiting points ($t\to\pm\infty$) of the curve and integrals which are $(\pm1/2,\pm1/2)$. In 1818, the French A.J. Fresnel who deals with many problems in wave optics and is unaware of the earlier results by Bernoulli and Euler discovers the Euler spiral independently and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically. With this finding he is able to establish the success of wave optics over particle optics which describes light as a transversal wave as opposed to the older idea by Newton who described light as consisting of particles.  In 1874 the French physicist M.A. Cornu followed similar ideas as Fresnel and is able to plot the curve accurately and proposes it as a graphical means for computing diffraction problems.  For that reason the Euler spiral is often also called Cornu spiral.
+If we trace the history of the Euler spiral and Fresnel integrals, we will find it under different authors, e.g.~Fresnel, Euler, Cornu and others.  This is because of the long history that Fresnel integral and the related Euler spiral have already left behind. They were discovered multiple times and under varying names during history.  One of the first occurrences is according to \cite{Lev08} by the French physicist J. Bernoulli in 1694.  Bernoulli approached many problems in elasticity theory at that time. One of them is a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends. He tried to find an explicit mathematical description of that curve, but it turned out that it is not that easy to do so at that time. In 1744, Swiss physicist and mathematician L. Euler is able to describe the same curve by a differential equation. This allows him to formulate a solution with integrals, namely what will later be called the Fresnel integrals.  37 years later, he computes the limiting points ($t\to\pm\infty$) of the curve and integrals which are $(\pm1/2,\pm1/2)$. In 1818, the French A.J. Fresnel who deals with many problems in wave optics and is unaware of the earlier results by Bernoulli and Euler discovers the Euler spiral independently and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically. With this finding he is able to establish the success of wave optics over particle optics which describes light as a transversal wave as opposed to the older idea by Newton who described light as consisting of particles.  In 1874 the French physicist M.A. Cornu followed similar ideas as Fresnel and is able to plot the curve accurately and proposes it as a graphical means for computing diffraction problems.  For that reason the Euler spiral is often also called Cornu spiral.
 
 
 \section{Properties of the Fresnel Integrals}
 The Fresnel integrals have many interesting mathematical properties. In this section, we will present some of them. 
 \subsection{Basic properties}
-The Fresnel integrals are odd, i.e.
+\begin{enumerate}
+\item The Fresnel integrals are odd, i.e.
 \begin{align*}
 	\S(-x) &= \S(x), & \C(-x) &= \C(x).
 \end{align*}
 \begin{proof}[Idea of proof]  The integrands $\sin(t^2)$ and $\cos(t^2)$ are even in $t$ and an anti-derivative $F(x)$ of an even function is odd if in addition $F(0)=0$.  The latter follows, because both integrals start at $t=0$.
 \end{proof}
+In particular this implies $\C(0)=0=\S(0)$.
 
-Their limits are
-\[  \lim_{x\to\infty} \S(x) = 0.5,\qquad  \lim_{x\to\infty} \C(x) = 0.5.
+\item Their limits are according to \cite{AS}
+\[  \lim_{x\to\pm\infty} \S(x) = \pm0.5,\qquad  \lim_{x\to\pm\infty} \C(x) = \pm0.5.
 \]
 
-Since the integrals cannot be computed by elementary analytic means, an alternative is to compute them with a power series.  Therefore we present the Taylor expansion as
+\item Since the integrals cannot be computed by elementary analytic means, an alternative is to compute them via power series.  Therefore we present the Taylor expansion as
 \begin{align*}
   \S(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+3}\frac{(\pi/2)^{2n+1}}{(2n+1)!(4n+3)}, \\
   \C(x) &= \sqrt{\frac\pi2}\sum_{n\ge0} (-1)^nx^{4n+1}\frac{(\pi/2)^{2n}}{(2n)!(4n+1)}.
 \end{align*}
 \begin{proof}[Idea of proof]  Start from the well known Taylor expansion of $\sin t = \sum_{n\ge0}$ $(-1)^n t^{2n+1}/(2n+1)!$ and $\cos t = \sum_{n\ge0} (-1)^nt^{2n}/(2n)!$, substitute $t\mapsto \tfrac\pi2 t^2$ and take the antiderivative for each summand.  The resulting series are $\S(t)$ and $\C(t)$, because the integral of an absolutely converging power series equals the absolutely converging power series of the integrals of the summands.
 \end{proof}
+\item From the power series it follows that the Fresnel integrals are analytic on the whole complex plane.  In particular they are entire complex functions.
 
+\item With these power series it is possible to draw the Fresnel integrals for real arguments Figure~\ref{f:graphFresnelIntegrals}.
+\end{enumerate}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Fresnel-Integrals-(Normalised).png}
+	\label{f:graphFresnelIntegrals}
 	\caption{Fresnel integrals \cite{wiki}.}
 \end{figure}
 
+
 \FloatBarrier
 \subsection{Relation to the Euler spiral}\label{s:relation}
+We will now formulate a major relation between the Fresnel integrals and the Euler spiral.  This was first observed by Euler in 1744.  Euler derived this property by constructing the solution of the differential equation \eqref{e:eulerSpiral} where he obtained what was later called Fresnel integrals \eqref{e:FresnelS} and \eqref{e:FresnelC}.
 \begin{thm}  The curve $(x,y)=(\C(t),\S(t))$ is an Euler spiral.
 \end{thm}
-\begin{proof}  Let us start with showing that $t$ is the parameter of the arc length.  Consider therefore the derivatives
+\begin{proof}  Let us start by showing that $t$ is the parameter of the arc length.  Consider therefore the derivatives
 \begin{align*}
   \C'(t) &= \cos\left(\frac\pi2 t^2\right), &  
   \S'(t) &= \sin\left(\frac\pi2 t^2\right), \\
@@ -148,7 +154,7 @@ i.e.~$t$ is the arc length $s$ of the curve.
 Let us now consider the curvature
 \begin{align*}
   \kappa &= x'y''-x''y' = C'(t)S''(t)-C''(t)S'(t) = \frac{\pi}{2}2t \sim t
-\end{align*}
+\end{align*}  This completes the proof of the theorem.
 \end{proof}
 
 \begin{figure}[h!]
@@ -163,15 +169,15 @@ Let us now consider the curvature
 The Fresnel integrals are closely related to the error function which is defined as follows
 $$  \erf(x) := \int_{-x}^x \exp(-t^2) \d{t}.
 $$
-Also this function is analytic and can therefore be expanded to the whole complex plane.  Here the integral for fixed endpoints is independent of the path.
+Also this function is analytic and can therefore be expanded to the whole complex plane.  Here the integral for fixed endpoints is independent of the path by Cauchy's theorem \cite[p.~205]{Rudin}.
 
 Now for the complex definition of exponential function
-\begin{align*}  \exp(x+\si y) &:= (\cos y +\si\sin y)\e^x
+\begin{align}  \exp(x+\si y) &:= (\cos y +\si\sin y)\e^x \label{e:CFresnel}
 \intertext{we obtain}
   \C(z)+\si\S(z) &= \int_0^z \exp\left(\si\frac\pi2 t^2\right)\d{t} 
-\intertext{Now we do a substitution in the complex plane as $t'=\sqrt{\si\frac\pi2}t$, i.e.~$\d{t'}=\frac{1+\si}{\sqrt{2}}\sqrt{\frac\pi2}\d{t}$ and obtain}
-  &= \frac{1-\si}{\sqrt{2}}\sqrt{\frac2\pi}\int_0^{\frac{1+\si}{\sqrt{2}}\sqrt{\frac\pi2}z} \exp(t^{\prime2}) \d{t'} = \frac12\sqrt{\frac2\pi}\,\frac{1-\si}{\sqrt2} \erf\left(\frac{1+\si}{\sqrt2}\,\sqrt{\frac\pi2} z\right).
-\end{align*}
+\intertext{Here we do a substitution in the complex plane as $t'=\sqrt{\si\frac\pi2}t$, i.e.~$\d{t'}=\frac{1+\si}{\sqrt{2}}\sqrt{\frac\pi2}\d{t}$ and obtain}
+  &= \frac{1-\si}{\sqrt{2}}\sqrt{\frac2\pi}\int_0^{\frac{1+\si}{\sqrt{2}}\sqrt{\frac\pi2}z} \exp(t^{\prime2}) \d{t'} = \frac12\sqrt{\frac2\pi}\,\frac{1-\si}{\sqrt2} \erf\left(\frac{1+\si}{\sqrt2}\,\sqrt{\frac\pi2} z\right).  \nonumber
+\end{align}
 Therefore we can say that the Fresnel integrals are the real and imaginary part of the complex error function.
 
 
@@ -189,17 +195,19 @@ Fresnel Integrals and Euler spiral have applications in many fields of science. 
 	\label{f:FresnelDiffraction}
 	\caption{Fresnel diffraction after \cite[ch.~8.1]{Zim08}. Incoming parallel light waves from the left.  An aperture S' and an observation screen on the right in distance $D$.}
 \end{figure}
-According to \cite[ch.~7]{Zim08} the complexified electric field strength $\E$ at a point $P$ on the observation screen of a plane electromagnetic wave that went through an aperture $S'$ computes as
+Consider an optical construction as in Figure~\ref{f:FresnelDiffraction}: A monochromatic plane light wave of amplitude $\B$ and frequency $\omega>0$ enters from the left through a plane aperture $S'$.  The light that emerges from the aperture travels a horizontal distance $D$ until it hits an observation screen.  Mathematically this is described as follows \cite[ch.~7]{Zim08}.  The electric field strength $\E$ at a point $P$ with coordinates $(x,y,D)$ on the observation screen computes as
 \[  \E(P) = \B\iint  \frac1\rho \exp\left(\si(k\rho-\omega t)\right) \d{S'}
-\] where $\B$ determines the amplitude of the incoming wave,\\ $\rho=\sqrt{(x-x')^2+(y-y')^2+D^2}$ is the distance of the aperture point $S'$ from the observation point $P$.  $k=\omega/c$ is the wave number, $\omega>0$ the frequency of the incoming monochromatic wave and $c>0$ the speed of light.  In the Fresnel approximation we assume that $|x-x'|/D\ll 1$ and $|y-y'|/D\ll 1$, but will not assume that the aperture itself is small.  Therefore we expand in the lowest orders of $(x-x')/D$ and $(y-y')/D$ and obtain
+\] where $\rho=\sqrt{(x-x')^2+(y-y')^2+D^2}$ is the distance of the aperture point $S'$ with coordinates $(x',y',0)$ from the observation point $P$.  $k=\omega/c$ is the wave number and $c>0$ the speed of light.  In the Fresnel approximation we assume that $|x-x'|/D\ll 1$ and $|y-y'|/D\ll 1$, but will not assume that the aperture itself is small compared to the wave length.  Therefore we expand in the lowest orders of $(x-x')/D$ and $(y-y')/D$ and obtain
 \[  \E(P) \approx \B\frac{\exp\left(\si(kD-\omega t)\right)}{D} \iint \exp\left(\si(x'-x)^2k/2D +\si(y'-y)^2k/2D\right) \d{(x',y')}.
 \]  If we combine the constant coefficient as $\E_0$ and assume a rectangular aperture of size $[x_0,x_1]\times[y_0,y_1]$, we obtain
-\begin{align*}  \E(x,y) &\approx \E_0 \int_{u_0}^{u_1} \exp\left(\si\frac\pi2 u^2\right)\d{u} \int_{v_0}^{v_1} \exp\left(\si\frac\pi2 v^2\right) \d{v} \\
+\begin{align*}  \E(x,y) &\approx \E_0 \int_{u_0}^{u_1} \exp\left(\si\frac\pi2 u^2\right)\d{u} \int_{v_0}^{v_1} \exp\left(\si\frac\pi2 v^2\right) \d{v} 
+\intertext{Here we see that integrals of the complex error function arise.  According to \eqref{e:CFresnel} we can compute that with the Fresnel integrals as}
   &= \E_0 \left[\C(u_1)+\si\S(u_1)-\C(u_0)-\si\S(u_0)\right] \left[\C(v_1)+\si\S(v_1)-\C(v_0)-\si\S(v_0)\right]
-\end{align*} where $u_k:=\sqrt{\frac2{D\lambda}}(x_k-x)$, $v_k:= \sqrt{\frac2{D\lambda}}(y_k-y)$ for $k=0,1$ \cite[Eqns.~(8.34a\&b)]{Zim08} and $\lambda=2\pi/k$ is the wave length.  The intensity near a vertical edge results as
+\end{align*} where $u_k:=\sqrt{\frac2{D\lambda}}(x_k-x)$, $v_k:= \sqrt{\frac2{D\lambda}}(y_k-y)$ for $k=0,1$ \cite[Eqns.~(8.34a\&b)]{Zim08} and $\lambda=2\pi/k$ is the wave length.  The intensity near a vertical edge ($y_0=-\infty$, $y_1=\infty$) results as
 \[  I(x):= |\E|^2 = \frac{I_0}{2} \left[\left(\frac12-\C(u_0)\right)^2+\left(\frac12-\S(u_0)\right)^2\right].
 \] See also \cite[Eqn.~(8.38)]{Zim08}.  This formula is the distance along the Euler spiral between the right point at $t=\infty$ and the left point at $t=u_0$.
 
+Therefore Cornu proposed to use the Euler spiral as a nomogram to do intensity computations in wave optics.
 
 \FloatBarrier 
 \subsection{Railway  Construction}

@@ -49,7 +49,7 @@ commonly known as the Fresnel integrals. However, the Fresnel integrals and Eule
 
 
 \section{Introduction}
-An Euler spiral is a famous curve whose curvature changes proportional to  its arc length. Taking the example of peeling an orange with a kitchen knife, one can either cut the skin vertically, or cut it along a spiral as the left-hand image in Figure~\ref{f:orangePeel} shows. The red lines marked on the orange refer to the route one can follow to peel the orange. Later, if we unfold the spiral strip and flatten it on a table, we will see a long curve which is curved differently at different positions. Imagine that we will now cut the peel with progressively thinner width of the strip, what we will obtain in the end is a long beautiful curve known as Euler spiral, as the right-hand image in Figure~\ref{f:orangePeel} shows. According to Alfred Gray, Euler spiral is “one of the most elegant of all plane curves.” \cite{ASG17}
+An Euler spiral is a curve whose curvature changes linearly with its arc length. Taking the example of peeling an orange with a kitchen knife, one can either cut the skin along meridians, or cut it along a spiral as the left-hand image in Figure~\ref{f:orangePeel} shows. The red lines marked on the orange refer to the route one can follow to peel the orange. Later, if we unfold the spiral strip and flatten it on a table, we will see a long curve which is curved differently at different positions. Imagine that we will now cut the peel with progressively thinner strip widths, what we will obtain in the end is a long beautiful curve known as Euler spiral, as the right-hand image in Figure~\ref{f:orangePeel} shows. According to Alfred Gray, Euler spiral is “one of the most elegant of all plane curves.” \cite{ASG17}
 
 
 \begin{figure}[h!]
@@ -62,11 +62,11 @@ An Euler spiral is a famous curve whose curvature changes proportional to  its a
 	}
 \end{figure}
 
-For a mathematician, an interesting question is whether there are any equations that can describe the corresponding shape of an Euler spiral. For this we consider the Fresnel integrals.  These are defined as integrals over some elementary functions which can however not be integrated in elementary functions.  These integrals occur naturally in the description of the optics of an illuminated straight edge (see Subsection~\ref{s:app1}).
+For a mathematician, an interesting question is whether there are any equations that can describe the corresponding shape of an Euler spiral. For this we consider the Fresnel integrals.  These are defined as integrals over some elementary functions which can however not be integrated in elementary functions.  These integrals occur naturally in the description of the optics of an illuminated straight edge (see Subsection~\ref{s:relation}).
 
 
 \subsection{Definition of Euler Spiral}
-The Euler Spiral, defined by the  linear relationship between curvature and arc length, was
+The Euler Spiral is defined by the  linear relationship between curvature and arc length and was
 first proposed as a problem of elasticity by James Bernoulli, then solved accurately by Leonhard Euler \cite{Lev08}.
 The Euler spiral is a curve in the complex plane that has curvature proportional to the arc length.  Here the arc length $s(t)$ of a differentiable curve $(x(t),y(t))$ in the plane is defined by
 \[  \left(\udfrac{s}{t}\right)^2 := \left(\udfrac{x}{t}\right)^2 +\left(\udfrac{y}{t}\right)^2.
@@ -95,15 +95,15 @@ where $x$ is a real number and $t$ is a real variable. When $x$ tends to infinit
 
 The difficulty is that these integrals cannot be computed with analytic means, i.e.~the functions are transcendental \cite[p.195ff]{AS}.  This is in contrast to, e.g.
 $$ \int_0^x (\sin t)^2 \d{t} = \frac12\int_0^x \left(1-\cos(2t)\right)\d{t} = \frac12x -\frac14\sin(2x).
-$$  The first step comes from the double angle formula $\cos(2t)=1-2(\sin t)^2$ \cite{AS}.  There is however no square angle formula, i.e.~anything related to $\cos(t^2)$.
+$$
 
 
 \subsection{Mathematical history}
-If we trace the history of the Euler spiral and Fresnel integrals, we will find it under different authors, e.g.~Fresnel, Cornu, Euler etc.  This is because of the long history that Fresnel integral and the related Euler spiral have already left behind. They were discovered multiple times and under varying names during history.  One of the first occurrences is according to \cite{Lev08} by the French physicist J. Bernoulli in 1694.  Bernoulli approached many problems in elasticity theory at that time. One of them is a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends. He tried to find an explicit mathematical description of that curve, but it turned out that it is not that easy to do so at that time. In 1744, Swiss physicist and mathematician L. Euler is able to describe the same curve by a differential equation. This allows him to formulate a solution with integrals, namely what will later be called the Fresnel integrals.  37 years later, he computes the limiting points ($t\to\pm\infty$) of the curve and integrals which are $(\pm1/2,\pm1/2)$. In 1818, the French A.J. Fresnel who deals with many problems in wave optics and is unaware of the earlier results by Bernoulli and Euler discovers the Euler spiral independently and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically. With this finding he is able to establish the success of wave optics over particle optics which describes light as a transversal wave as opposed to the older idea by Newton who described light as consisting of particles.  In 1874 the French physicist M.A. Cornu followed similar ideas as Fresnel and is able to plot the curve accurately and proposes it as a graphical means for computing diffraction problems.  For that reason the Euler spiral is often also called Cornu spiral.
+The Fresnel integral and the related Euler spiral were discovered multiple times during history.  One of the first occurrences is according to \cite{Lev08} by J. Bernoulli in 1694 where he defines a curve such that an ideal metal rod of this shape unwinds to a straight line when placed under load at the ends.  In 1744, Euler is able to describe the curve by a differential equation that also allows him to reformulate it as the Fresnel integral.  37 years later he is able to compute the limiting points ($t\to\pm\infty$) of the curve and integrals.  Fresnel discovers the curve in 1818 independently and successfully applies it to the diffraction on a slit \cite{Lev08}.  He is also able to compute a couple of values numerically.  In 1874 Cornu plotted the curve accurately and proposes it as a graphical means for computing diffraction problems.
 
+In the following sections, we will first describe the important properties of the Fresnel integrals followed by some important applications of it.
 
 \section{Properties of the Fresnel Integrals}
-The Fresnel integrals have many interesting mathematical properties. In this section, we will present some of them. 
 \subsection{Basic properties}
 The Fresnel integrals are odd, i.e.
 \begin{align*}
@@ -179,7 +179,7 @@ Therefore we can say that the Fresnel integrals are the real and imaginary part 
 Fresnel Integrals and Euler spiral have applications in many fields of science. They occurred originally in the analysis of the diffraction of light. More recently, Euler spiral appears in the design of highways and railroad tracks, robot trajectory planning, and computer-aided design. In this section, we will describe two main applications of the Fresnel integrals in detail, namely the original Fresnel Diffraction and the railway construction. 
 
 
-\subsection{Fresnel Diffraction}\label{s:app1}
+\subsection{Fresnel Diffraction}
 \defbf\E{E}
 \defbf\B{B}
 \begin{figure}[h!]

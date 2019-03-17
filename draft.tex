@@ -42,11 +42,7 @@
 \begin{abstract}
 
 The Euler spiral, that is defined by the linear relationship between curvature and arc length, is a beautiful and elegant plane curve. Its underlying mathematical equation is most
-commonly known as the Fresnel integrals. However, the Fresnel integrals and Euler spiral are  two views of one and the same thing. In this paper, we focus on Fresnel integral and study its properties and useful applications. In optics, the illumination
-intensity at a point behind a slit is computed from
-the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and
-an upcoming bend
-
+commonly known as the Fresnel integrals. However, the Fresnel integrals and Euler spiral are  two views of one and the same thing. In this paper, we focus on the Fresnel integrals and study its properties and useful applications. In optics, the illumination intensity at a point behind a straight edge is computed from the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and an upcoming bend.
 
 \end{abstract}
 \clearpage
@@ -66,7 +62,7 @@ An Euler spiral is a curve whose curvature changes linearly with its arc length.
 	}
 \end{figure}
 
-For a mathematician, an interesting question is whether there are any equations that can describe the corresponding shape of an Euler spiral. For this we consider the Fresnel integrals.  These are defined as integrals over some elementary functions which can however not be integrated in elementary functions.  These integrals occur naturally in the description of the optics of an illuminated slit (see Subsection~\ref{s:relation}).
+For a mathematician, an interesting question is whether there are any equations that can describe the corresponding shape of an Euler spiral. For this we consider the Fresnel integrals.  These are defined as integrals over some elementary functions which can however not be integrated in elementary functions.  These integrals occur naturally in the description of the optics of an illuminated straight edge (see Subsection~\ref{s:relation}).
 
 
 \subsection{Definition of Euler Spiral}
@@ -195,7 +191,7 @@ Fresnel Integrals and Euler spiral have applications in many fields of science. 
 \end{figure}
 According to \cite[ch.~7]{Zim08} the complexified electric field strength $\E$ at a point $P$ on the observation screen of a plane electromagnetic wave that went through an aperture $S'$ computes as
 \[  \E(P) = \B\iint  \frac1\rho \exp\left(\si(k\rho-\omega t)\right) \d{S'}
-\] where $\B$ determines the amplitude of the incoming wave,\\ $\rho=\sqrt{(x-x')^2+(y-y')^2+D^2}$ is the distance of the aperture point $S'$ from the observation point $P$.  $k=\omega/c$ is the wave number, $\omega$ the frequency of the incoming monochromatic wave and $c>0$ the speed of light.  In the Fresnel approximation we assume that $|x-x'|/D\ll 1$ and $|y-y'|/D\ll 1$, but will not assume that the aperture itself is small.  Therefore we expand in the lowest orders of $(x-x')/D$ and $(y-y')/D$ and obtain
+\] where $\B$ determines the amplitude of the incoming wave,\\ $\rho=\sqrt{(x-x')^2+(y-y')^2+D^2}$ is the distance of the aperture point $S'$ from the observation point $P$.  $k=\omega/c$ is the wave number, $\omega>0$ the frequency of the incoming monochromatic wave and $c>0$ the speed of light.  In the Fresnel approximation we assume that $|x-x'|/D\ll 1$ and $|y-y'|/D\ll 1$, but will not assume that the aperture itself is small.  Therefore we expand in the lowest orders of $(x-x')/D$ and $(y-y')/D$ and obtain
 \[  \E(P) \approx \B\frac{\exp\left(\si(kD-\omega t)\right)}{D} \iint \exp\left(\si(x'-x)^2k/2D +\si(y'-y)^2k/2D\right) \d{(x',y')}.
 \]  If we combine the constant coefficient as $\E_0$ and assume a rectangular aperture of size $[x_0,x_1]\times[y_0,y_1]$, we obtain
 \begin{align*}  \E(x,y) &\approx \E_0 \int_{u_0}^{u_1} \exp\left(\si\frac\pi2 u^2\right)\d{u} \int_{v_0}^{v_1} \exp\left(\si\frac\pi2 v^2\right) \d{v} \\
@@ -239,9 +235,7 @@ Marie Alfred Cornu (and later some civil engineers) also solved the calculus of 
 
 
 \section{Conclusion}
-The Euler spiral is a well known mathematical curve which can be constructed by peeling an orange around the spiral with a kitchen knife. Fresnel integrals are the mathematical equations that describe the Euler spiral. In this paper, we mainly study the properties of the Fresenal integrals and its two major applications: Fresnel Diffraction and railway transition curve construction.
-
-
+The Euler spiral is a well known mathematical curve which can be constructed by peeling an orange along a spiral with a kitchen knife. Fresnel integrals are the mathematical equations that describe the Euler spiral. In this paper, we mainly studied the properties of the Fresnel integrals and its two major applications: Fresnel Diffraction and railway transition curve construction.
 
 
 \bibliographystyle{alphasorteprint}

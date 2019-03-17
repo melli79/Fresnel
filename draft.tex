@@ -110,11 +110,11 @@ The Fresnel integrals have many interesting mathematical properties. In this sec
 \end{align*}
 \begin{proof}[Idea of proof]  The integrands $\sin(t^2)$ and $\cos(t^2)$ are even in $t$ and an anti-derivative $F(x)$ of an even function is odd if in addition $F(0)=0$.  The latter follows, because both integrals start at $t=0$.
 \end{proof}
-In particular this implies $\C(0)=0=\S(0)$.
+This means that the full graphs of $\S$ and $\C$ are point symmetric at the origin.  It is therefore enough to plot them for positive arguments.  In particular this implies $\C(0)=0=\S(0)$.
 
 \item Their limits are according to \cite{AS}
 \[  \lim_{x\to\pm\infty} \S(x) = \pm0.5,\qquad  \lim_{x\to\pm\infty} \C(x) = \pm0.5.
-\]
+\]  Euler was first able to compute these limits from an analysis of the Fresnel integrals.  From the formulation as integral it is not obvious that the improper integrals (with unbounded domain) converge to a finite value of $1/2$.  However if we note that the integrand is oscillating with increasing amplitude ($\sin(t^2)=\sin(\omega t)$ for $\omega(t)=t$ increasing, and the analogue for $\cos(t^2)$), then it becomes plausible that the alternating positive and negative contributions from $t^2=k\pi$ to $t^2=(k+1)\pi$ (i.e.~lengths of the intervals $\sqrt{(k+1)\pi}-\sqrt{k\pi}$ for $k=0,1,2,\dots$) become smaller and smaller, asymptotically approaching 0.  By Leibniz criterion the whole integral should thus converge.
 
 \item Since the integrals cannot be computed by elementary analytic means, an alternative is to compute them via power series.  Therefore we present the Taylor expansion as
 \begin{align*}
@@ -123,9 +123,11 @@ In particular this implies $\C(0)=0=\S(0)$.
 \end{align*}
 \begin{proof}[Idea of proof]  Start from the well known Taylor expansion of $\sin t = \sum_{n\ge0}$ $(-1)^n t^{2n+1}/(2n+1)!$ and $\cos t = \sum_{n\ge0} (-1)^nt^{2n}/(2n)!$, substitute $t\mapsto \tfrac\pi2 t^2$ and take the antiderivative for each summand.  The resulting series are $\S(t)$ and $\C(t)$, because the integral of an absolutely converging power series equals the absolutely converging power series of the integrals of the summands.
 \end{proof}
-\item From the power series it follows that the Fresnel integrals are analytic on the whole complex plane.  In particular they are entire complex functions.
+In order to compute approximate numerical values for particular finite arguments, we would now sum up the Taylor series up to a certain degree $n$ such that the following term (for $n+1$ which is of the order of the error) is small compared to the required precision.  Unfortunately this means that we need to add more terms for larger arguments $x$.  The formulas are therefore not very helpful to compute the limit $x\to\pm\infty$.
 
-\item With these power series it is possible to draw the Fresnel integrals for real arguments Figure~\ref{f:graphFresnelIntegrals}.
+\item From the power series it follows that the Fresnel integrals are analytic on the whole complex plane.  In particular they are entire complex functions.  This allows us to use the full machinery of complex analysis to discuss further properties of the integrals.
+
+\item With these power series it is possible to draw the Fresnel integrals for real arguments Figure~\ref{f:graphFresnelIntegrals}.  Similar to the sine and cosine functions, the Fresnel integrals are oscillating.  However the distance between consecutive local maxima (or also consecutive local minima) are constantly decreasing.  This is as we already argued under the limit $x\to\infty$, because the integrands are alternatingly positive and negative for intervals of decreasing length.
 \end{enumerate}
 \begin{figure}[h!]
 	\centering
@@ -156,6 +158,10 @@ Let us now consider the curvature
   \kappa &= x'y''-x''y' = C'(t)S''(t)-C''(t)S'(t) = \frac{\pi}{2}2t \sim t
 \end{align*}  This completes the proof of the theorem.
 \end{proof}
+
+This theorem establishes two things.  First, the Fresnel integrals are particular solutions of the Euler spiral \eqref{e:eulerSpiral}.  This is particularly helpful for engineers, because in practical applications it is necessary to draw and compute the shape of the Euler spiral.
+
+Secondly, the Euler spiral \eqref{e:eulerSpiral} has a solution for the whole parameter range $t\in\R$.  This property is not obvious, because usual existence and uniqueness theorems for ordinary differential equations \cite[Picard--Lindeloff theorem]{sim} either only work for linear differential equations or only state local existence and uniqueness.
 
 \begin{figure}[h!]
 	\centering

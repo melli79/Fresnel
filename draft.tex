@@ -41,9 +41,11 @@
 \maketitle
 \begin{abstract}
 
-The Euler spiral, that is defined by a linear relationship between curvature and arc length, is a beautiful and elegant plane curve. Its underlying mathematical equation is most
-commonly known as the Fresnel integrals. However, the Fresnel integrals and Euler spiral are  two views of one and the same thing. In this paper, we focus on the Fresnel integrals and study its properties and useful applications. In optics, the illumination intensity at a point behind a straight edge is computed from the distance between two points on the Euler spiral. The Euler spiral also provides optimal curvature for train tracks between a straight run and an upcoming bend.
+The Euler spiral is a well known mathematical curve which can be constructed, e.g.~by peeling an orange along a spiral with a kitchen knife.  Euler described it geometrically by a differential equation that sets the curvature linear to the arc length.  On the other hand Fresnel integrals arise naturally in the mathematical description of Fresnel diffraction.  We will study this in detail as a first application.
 
+We further reproduce the theorem that Fresnel integrals are the mathematical solutions of the Euler spiral. We also study another major application: railway transition curve construction where one tries to find a railway track than can be traveled smoothly even at higher velocities.  We show that the transition curve construction has a simple solution in the Euler spiral.  For practical purposes, we need to draw the Euler spiral or segments of it explicitly which can be done using the Fresnel integrals.
+
+In this sense we argue that the Euler spiral and the Fresnel integrals are two views of the same concept and are most fruitfully applied together.
 \end{abstract}
 \clearpage
 
@@ -217,16 +219,13 @@ Therefore Cornu proposed to use the Euler spiral as a nomogram to do intensity c
 
 \FloatBarrier 
 \subsection{Railway  Construction}
-An object traveling at speed $v$ on a circular path of radius $R$ experiences a centripetal acceleration $a$ as
+When a train travels at speed $v$ on a circular path of radius $R$ the passengers experience a centripetal acceleration $a$ as
 $$  a = v^2/R.
-$$ When a vehicle that travels on a straight path suddenly transitions to a circular path, then the acceleration sensed by the passengers suddenly changes from $0$ for the straight segment ($1/R=0$) to some positive value ($a>0$, because $1/R>0$). This sudden centripetal acceleration gives much discomfort for the driver as well as the passengers on the vehicle.  The effect is small when, e.g.~the first trains traveled at quite low speeds, but becomes much stronger when the speed increases ($a\sim v^2$).  Therefore increased speeds of trains triggered the quest for better designed tracks.  According to \cite{Lev08}, Mr. Gravatt was the first one who choose a sine curve for the transition from a straight segment to a curve around the year of 1828. Later in 1842, William Froude proposed the use of an elastic curve in order to make the change of curvature more smooth. In 1880, Charles Crandall asks for priority for the ``true transition curve'' in the Railroad Gazette.  The problem is officially on to Ellis Holbrook to be solved, however, Arthur Talbot was among the first to approach the problem mathematically.  He describes the problem and his solution in the introduction to ``The Railway Transition Spiral'' \cite{Tal99} which we quote here for being pronounced:
+$$ When the train travels on a straight (horizontal) line with constant speed there is no acceleration.  However, in order to change the direction, we need to accelerate.  The first solution that comes to mind is to connect the initial and final straight segments by a circle.  But when the train passes this track at constant speed, the acceleration jumps from 0 for the straight segment ($1/R=0$) to some positive value ($a>0$, because $1/R>0$).  This sudden change of acceleration can be much discomfort.  The effect is small when, e.g.~the first trains, traveled at quite low speeds, but becomes much stronger when the speed increases ($a\sim v^2$).  Therefore increased speeds of trains triggered the quest for better designed tracks.  The problem is to find a transition curve from a straight tangential line segment to a circular segment.
 
-\begin{quotation}
-	A transition curve, or easement curve, as it is sometimes called, is a curve of varying radius used to connect circular curves with tangents for the purpose of avoiding the shock and disagreeable lurch of trains, due to the instant change of direction and also to the sudden change from level to inclined track. The primary object of the transition curve, then, is to effect smooth riding when the train is entering or leaving a curve.
+Different approaches were taken to this. According to \cite{Lev08}, Mr. Gravatt was the first one who choose a sine curve for this transition around the year of 1828. Unlike a circle, the sine curve $y=\sin x$ has the curvature $\kappa=1/R=-\sin x/\left(1+(\cos x)^2\right)^{3/2}$ that changes continuously from $\kappa=0$ at $x=0$ to $\kappa=1$ at $x=\pi/2$ and back to $\kappa=0$ at $x=\pi$.
 
-	The generally accepted requirement for a proper transition curve is that the degree-of-curve shall increase gradually and uniformly from the point of tangent until the degree of the main curve is reached, and that the super-elevation shall increase uniformly from zero at the tangent to the full amount at the connection with the main curve and yet have at any point
-	the appropriate super-elevation for the curvature. In addition to this, an acceptable transition curve must be so simple that the field work may be easily and rapidly done, and should be so flexible that it may be adjusted to meet the varied requirements of problems in location and construction.
-\end{quotation}
+In 1880, Charles Crandall asked for priority for the ``true transition curve'' in the Railroad Gazette.  The problem is officially on Ellis Holbrook to be solved, however, Arthur Talbot was among the first to approach the problem mathematically.  He describes the problem and his solution in the introduction to ``The Railway Transition Spiral'' \cite{Tal99}.
 
 Given the centripetal acceleration $a=v^2/R$, an obvious solution is to construct a curve whose curvature, $\kappa=1/R$, increases linearly with the traveled distance. This is the geometry of an Euler spiral \eqref{e:eulerSpiral}.
 
@@ -236,7 +235,13 @@ Marie Alfred Cornu (and later other civil engineers) also solved the problem of 
 
 
 \section{Conclusion}
-The Euler spiral is a well known mathematical curve which can be constructed by peeling an orange along a spiral with a kitchen knife. Fresnel integrals are the mathematical equations that describe the Euler spiral. In this paper, we mainly studied the properties of the Fresnel integrals and its two major applications: Fresnel Diffraction and railway transition curve construction.
+The Euler spiral is a well known mathematical curve which can be constructed, e.g.~by peeling an orange along a spiral with a kitchen knife.  Euler described it geometrically by a differential equation that sets the curvature linear to the arc length.  We showed that Fresnel integrals are the mathematical solutions of the Euler spiral. 
+
+In this paper, we also studied two of its major applications: Fresnel diffraction in optics and a railway transition curve construction.  While the former leads directly to the Fresnel integrals, it turns out that its practical evaluation relies fruitfully on the Euler spiral.
+
+We showed that the transition curve construction has a simple solution in the Euler spiral, because here the curvature changes linearly with the traveled distance (arc length).  But for practical purposes, we need to draw the Euler spiral or segments of it explicitly which can be done using the Fresnel integrals.
+
+In this sense the Euler spiral and the Fresnel integrals are two views of the same concept and are most fruitfully applied together.
 
 
 \bibliographystyle{alphasorteprint}

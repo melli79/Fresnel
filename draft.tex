@@ -183,14 +183,29 @@ Therefore we can say that the Fresnel integrals are the real and imaginary part 
 Fresnel Integrals and Euler spiral have applications in many fields of science. They occurred originally in the analysis of the diffraction of light. More recently, Euler spiral appears in the design of highways and railroad tracks, robot trajectory planning, and computer-aided design. In this section, we will describe two main applications of the Fresnel integrals in detail, namely the original Fresnel Diffraction and the railway construction. 
 
 
-
 \subsection{Fresnel Diffraction}
-\cite{BH12}
-Electromagnetic field intensity
-in the physics of diffraction 
+\defbf\E{E}
+\defbf\B{B}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{opticalSetting.png} \\
+	% (2) \includegraphics[width=0.5\textwidth]{opticalParameters.png}
+	\label{f:FresnelDiffraction}
+	\caption{Fresnel diffraction after \cite[ch.~8.1]{Zim08}. Incoming parallel light waves from the left.  An aperture S' and an observation screen on the right in distance $D$.}
+\end{figure}
+According to \cite[ch.~7]{Zim08} the complexified electric field strength $\E$ at a point $P$ on the observation screen of a plane electromagnetic wave that went through an aperture $S'$ computes as
+\[  \E(P) = \B\iint  \frac1\rho \exp\left(\si(k\rho-\omega t)\right) \d{S'}
+\] where $\B$ determines the amplitude of the incoming wave,\\ $\rho=\sqrt{(x-x')^2+(y-y')^2+D^2}$ is the distance of the aperture point $S'$ from the observation point $P$.  $k=\omega/c$ is the wave number, $\omega$ the frequency of the incoming monochromatic wave and $c>0$ the speed of light.  In the Fresnel approximation we assume that $|x-x'|/D\ll 1$ and $|y-y'|/D\ll 1$, but will not assume that the aperture itself is small.  Therefore we expand in the lowest orders of $(x-x')/D$ and $(y-y')/D$ and obtain
+\[  \E(P) \approx \B\frac{\exp\left(\si(kD-\omega t)\right)}{D} \iint \exp\left(\si(x'-x)^2k/2D +\si(y'-y)^2k/2D\right) \d{(x',y')}.
+\]  If we combine the constant coefficient as $\E_0$ and assume a rectangular aperture of size $[x_0,x_1]\times[y_0,y_1]$, we obtain
+\begin{align*}  \E(x,y) &\approx \E_0 \int_{u_0}^{u_1} \exp\left(\si\frac\pi2 u^2\right)\d{u} \int_{v_0}^{v_1} \exp\left(\si\frac\pi2 v^2\right) \d{v} \\
+  &= \E_0 \left[\C(u_1)+\si\S(u_1)-\C(u_0)-\si\S(u_0)\right] \left[\C(v_1)+\si\S(v_1)-\C(v_0)-\si\S(v_0)\right]
+\end{align*} where $u_k:=\sqrt{\frac2{D\lambda}}(x_k-x)$, $v_k:= \sqrt{\frac2{D\lambda}}(y_k-y)$ for $k=0,1$ \cite[Eqns.~(8.34a\&b)]{Zim08} and $\lambda=2\pi/k$ is the wave length.  The intensity near a vertical edge results as
+\[  I(x):= |\E|^2 = \frac{I_0}{2} \left[\left(\frac12-\C(u_0)\right)^2+\left(\frac12-\S(u_0)\right)^2\right].
+\] See also \cite[Eqn.~(8.38)]{Zim08}.  This formula is the distance along the Euler spiral between the right point at $t=\infty$ and the left point at $t=u_0$.
 
-In optics, the illuminationintensity at a point behind a slit is computed from the distance between two points on the Euler spiral. 
- 
+
+\FloatBarrier 
 \subsection{Railway  Construction}
 
  is used in the theory of driving motorcar round a corner quickly.
